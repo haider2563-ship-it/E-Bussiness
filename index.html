@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tekken Arena - My Vision</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c; /* A dark gray background */
+            background-image: url('https://images.unsplash.com/photo-1621379963695-1215b498f395?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .container-content {
+            background: rgba(0, 0, 0, 0.7); /* A semi-transparent dark overlay for readability */
+            backdrop-filter: blur(5px);
+            min-height: calc(100vh - 8rem); /* Adjust based on padding */
+        }
+        
+        /* Neon button styling */
+        .neon-btn {
+            background-color: #2d3748; /* Dark background */
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            text-align: center;
+            font-weight: 600;
+            color: #ffffff;
+            transition: all 0.3s ease-in-out;
+            border: 2px solid transparent; /* Neon border effect */
+            box-shadow: 0 0 5px #ef4444, 0 0 10px #ef4444, 0 0 15px #ef4444; /* Neon glow */
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        .neon-btn:hover {
+            background-color: #1a202c;
+            border-color: #ef4444;
+            box-shadow: 0 0 10px #ef4444, 0 0 20px #ef4444, 0 0 30px #ef4444, inset 0 0 15px #ef4444;
+            transform: translateY(-2px);
+        }
+
+        .neon-btn.active {
+            background-color: #ef4444;
+            border-color: #fca5a5;
+            box-shadow: 0 0 15px #ef4444, 0 0 25px #ef4444, 0 0 40px #ef4444, inset 0 0 20px #ef4444;
+            transform: scale(1.05);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 15px #ef4444, 0 0 25px #ef4444, 0 0 40px #ef4444, inset 0 0 20px #ef4444;
+            }
+            50% {
+                box-shadow: 0 0 20px #ef4444, 0 0 30px #ef4444, 0 0 50px #ef4444, inset 0 0 25px #ef4444;
+            }
+        }
+    </style>
+</head>
+<body class="text-white">
+
+    <!-- Main Content Container -->
+    <div class="p-8 lg:p-12 mx-auto max-w-7xl">
+
+        <!-- Header and Navigation -->
+        <header class="flex flex-col items-center justify-center p-4 md:p-6 mb-8 lg:mb-12">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-2 text-center text-red-500 drop-shadow-lg">
+                Tekken Arena
+            </h1>
+
+            <!-- Navigation Buttons -->
+            <nav class="w-full flex flex-wrap justify-center gap-4">
+                <button id="btn-passion" data-target="passion" class="nav-btn neon-btn active">
+                    Tekken Journey
+                </button>
+                <button id="btn-goals" data-target="goals" class="nav-btn neon-btn">
+                    Future Goals
+                </button>
+                <button id="btn-concept" data-target="arena-concept" class="nav-btn neon-btn">
+                    Arena Concept
+                </button>
+                <button id="btn-contact" data-target="contact" class="nav-btn neon-btn">
+                    Contact Me
+                </button>
+            </nav>
+        </header>
+
+        <!-- Content Sections -->
+        <main class="container-content rounded-xl shadow-2xl p-6 lg:p-10 transition-all duration-300 ease-in-out">
+            <!-- My Passion Section (visible by default) -->
+            <section id="passion" class="content-section">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center text-red-400">Tekken: From Arcade to Arena</h2>
+                <p class="text-base md:text-lg text-gray-200 leading-relaxed mb-4">
+                    My love for Tekken began in the arcade. I spent hours there, playing Tekken 3 with friends. The sound of the joystick and buttons was music to my ears. As I got older, I moved on to Tekken Tag Tournament 2 on my Xbox 360, but I never forgot the feeling of the arcade.
+                </p>
+                <p class="text-base md:text-lg text-gray-200 leading-relaxed mb-4">
+                    Now, I want to take that passion and turn it into something real. My goal is to create a modern gaming arena in Faisalabad. It will be a place where old and new players can come together to play Tekken and share their love for the game.
+                </p>
+            </section>
+
+            <!-- Future Goals Section -->
+            <section id="goals" class="content-section hidden">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center text-red-400">Future Goals: Building an Arena</h2>
+                <p class="text-base md:text-lg text-gray-200 leading-relaxed mb-4">
+                    My ultimate goal is to transform my passion into a vibrant business. I envision a modern gaming arena right here in Faisalabad—a place where both veteran players and newcomers can come together. It won't just be a gaming spot; it will be a high-tech hub for Tekken enthusiasts. The arena will feature top-of-the-line gaming consoles, high-refresh-rate monitors, and comfortable setups to provide the best possible gaming experience.
+                </p>
+                <p class="text-base md:text-lg text-gray-200 leading-relaxed">
+                    This arena will be more than just a business; it will be the new home for the fighting game community in the city. I aim to host regular tournaments with attractive prizes, organize casual meet-ups, and create a space that fosters sportsmanship and friendship. My goal is to build a community that shares the same love for Tekken that has driven me for years, providing a professional and welcoming environment for everyone.
+                </p>
+            </section>
+
+            <!-- Arena Concept Section -->
+            <section id="arena-concept" class="content-section hidden">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center text-red-400">The Arena Concept</h2>
+                <p class="text-base md:text-lg text-gray-200 leading-relaxed mb-4">
+                    The Faisalabad Tekken Arena will be a premium gaming facility designed for competitive play. The concept focuses on providing the best possible environment for players to hone their skills and compete. Key features will include:
+                </p>
+                <ul class="list-disc list-inside text-gray-200 text-base md:text-lg space-y-2">
+                    <li><span class="font-semibold text-red-400">High-Performance Gaming Stations:</span> Each station will be equipped with modern gaming consoles and controllers, optimized for a lag-free experience.</li>
+                    <li><span class="font-semibold text-red-400">Dedicated Tournament Area:</span> A separate stage area with large screens for live-streaming matches, creating an immersive experience for both players and spectators.</li>
+                    <li><span class="font-semibold text-red-400">Snack & Refreshment Bar:</span> A dedicated counter to provide energy drinks, snacks, and other refreshments to keep players energized during long gaming sessions.</li>
+                    <li><span class="font-semibold text-red-400">Community Spaces:</span> Comfortable lounge areas where players can relax, socialize, and discuss strategies.</li>
+                </ul>
+            </section>
+
+            <!-- Contact Me Section -->
+            <section id="contact" class="content-section hidden">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center text-red-400">Get in Touch</h2>
+                <p class="text-base md:text-lg text-gray-200 leading-relaxed mb-6 text-center">
+                    I'd love to connect with fellow Tekken players and business partners. Feel free to reach out to me via email or join my Discord server to chat.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <a href="mailto:muhammadhaidermansoor@gmail.com" class="contact-btn neon-btn">
+                        <span class="font-medium">Email Me</span>
+                    </a>
+                    <a href="https://discord.gg/3HxRuKwF" target="_blank" rel="noopener noreferrer" class="contact-btn neon-btn">
+                        <span class="font-medium">Join Discord</span>
+                    </a>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="mt-8 text-center text-gray-400 text-xs">
+            <p class="mb-1">E-Business Site Assignment</p>
+            <p>Haider_Mansoor_Final_Draft</p>
+        </footer>
+
+    </div>
+
+    <!-- Script to Handle Navigation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navBtns = document.querySelectorAll('.nav-btn');
+            const contentSections = document.querySelectorAll('.content-section');
+
+            // Set the initial active section and button
+            document.getElementById('passion').classList.remove('hidden');
+            document.getElementById('btn-passion').classList.add('active');
+
+            navBtns.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active style from all buttons
+                    navBtns.forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
+                    // Add active style to the clicked button
+                    button.classList.add('active');
+
+                    const targetId = button.getAttribute('data-target');
+
+                    // Hide all content sections
+                    contentSections.forEach(section => {
+                        section.classList.add('hidden');
+                    });
+
+                    // Show the target section
+                    document.getElementById(targetId).classList.remove('hidden');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
