@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Business Assignment_01</title>
+    <title>Tekken Arena - My Vision</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,57 +11,119 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #1a202c; /* A dark gray background */
-            background-image: url('https://images.unsplash.com/photo-1621379963695-1215b498f395?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-            background-size: cover;
-            background-position: center;
+            background-color: #0d1117;
+            background-image: linear-gradient(
+                45deg,
+                #000851 0%,
+                #000851 20%,
+                #040a3d 30%,
+                #1d005a 50%,
+                #040a3d 70%,
+                #000851 80%,
+                #000851 100%
+            );
+            background-size: 400% 400%;
+            animation: background-animate 20s ease infinite;
             background-attachment: fixed;
+        }
+        
+        @keyframes background-animate {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .container-content {
-            background: rgba(0, 0, 0, 0.7); /* A semi-transparent dark overlay for readability */
-            backdrop-filter: blur(5px);
-            min-height: calc(100vh - 8rem); /* Adjust based on padding */
+            background: rgba(2, 6, 23, 0.7); /* Increased opacity */
+            backdrop-filter: blur(20px) saturate(200%); 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            min-height: calc(100vh - 8rem);
+            box-shadow: 0 0 40px rgba(120, 115, 245, 0.2); /* Soft glow */
+            animation: container-glow 5s infinite alternate ease-in-out;
         }
         
-        /* Neon button styling */
-        .neon-btn {
-            background-color: #2d3748; /* Dark background */
+        @keyframes container-glow {
+            from {
+                box-shadow: 0 0 20px rgba(120, 115, 245, 0.2), 0 0 30px rgba(255, 110, 196, 0.1);
+            }
+            to {
+                box-shadow: 0 0 40px rgba(120, 115, 245, 0.4), 0 0 60px rgba(255, 110, 196, 0.3);
+            }
+        }
+        
+        /* Multi-gradient text for titles */
+        .multi-gradient-text {
+            background: linear-gradient(
+                45deg,
+                #ff6ec4, #7873f5, #00d2ff
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+        }
+
+        .glass-btn {
             padding: 0.75rem 1.5rem;
             border-radius: 9999px;
             text-align: center;
             font-weight: 600;
             color: #ffffff;
-            transition: all 0.3s ease-in-out;
-            border: 2px solid transparent; /* Neon border effect */
-            box-shadow: 0 0 3px #00aaff; /* Reduced glow */
+            transition: all 0.5s ease-in-out;
             cursor: pointer;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
+            position: relative;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px); /* More intense blur for buttons */
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
-        .neon-btn:hover {
-            background-color: #1a202c;
-            border-color: #00aaff;
-            box-shadow: 0 0 5px #00aaff, 0 0 10px #00aaff; /* Reduced hover glow */
-            transform: translateY(-2px);
+        .glass-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 110, 196, 0.6), /* More vibrant colors */
+                rgba(120, 115, 245, 0.4),
+                transparent 50%,
+                rgba(120, 115, 245, 0.4),
+                rgba(255, 110, 196, 0.6)
+            );
+            background-size: 200% 200%;
+            transition: background-position 0.5s ease;
+            animation: fluid-bg 10s ease-in-out infinite; /* Faster animation */
+        }
+        
+        @keyframes fluid-bg {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        .neon-btn.active {
-            background-color: #00aaff;
-            border-color: #87cefa;
-            box-shadow: 0 0 8px #00aaff, 0 0 15px #00aaff, inset 0 0 10px #00aaff; /* Reduced active glow */
-            transform: scale(1.05);
-            animation: pulse 1.5s infinite;
+        .glass-btn:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 4px 8px rgba(120, 115, 245, 0.3), 0 2px 4px rgba(255, 110, 196, 0.2);
+        }
+
+        .glass-btn.active {
+            box-shadow: 0 0 10px #7873f5, 0 0 20px #ff6ec4;
+            background: linear-gradient(90deg, #ff6ec4, #7873f5, #00d2ff);
+            animation: pulse 1s infinite; /* Faster pulse */
         }
 
         @keyframes pulse {
             0%, 100% {
-                box-shadow: 0 0 8px #00aaff, 0 0 15px #00aaff, inset 0 0 10px #00aaff;
+                box-shadow: 0 0 10px #7873f5, 0 0 20px #ff6ec4;
             }
             50% {
-                box-shadow: 0 0 10px #00aaff, 0 0 20px #00aaff, inset 0 0 12px #00aaff;
+                box-shadow: 0 0 12px #7873f5, 0 0 24px #ff6ec4;
             }
         }
     </style>
@@ -73,24 +135,33 @@
 
         <!-- Header and Navigation -->
         <header class="flex flex-col items-center justify-center p-4 md:p-6 mb-8 lg:mb-12">
-            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-2 text-center text-sky-500 drop-shadow-lg">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-2 text-center drop-shadow-lg multi-gradient-text">
                 Tekken Arena
             </h1>
 
+            <!-- Menu button for mobile -->
+            <button id="menu-toggle" class="glass-btn mb-4 md:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16" />
+                </svg>
+            </button>
+
             <!-- Navigation Buttons -->
-            <nav class="w-full flex flex-wrap justify-center gap-4">
-                <button id="btn-passion" data-target="passion" class="nav-btn neon-btn active">
-                    Tekken Journey
-                </button>
-                <button id="btn-goals" data-target="goals" class="nav-btn neon-btn">
-                    Future Goals
-                </button>
-                <button id="btn-concept" data-target="arena-concept" class="nav-btn neon-btn">
-                    Arena Concept
-                </button>
-                <button id="btn-contact" data-target="contact" class="nav-btn neon-btn">
-                    Contact Me
-                </button>
+            <nav id="nav-menu" class="hidden md:block w-full">
+                <div class="flex flex-col md:flex-row justify-center gap-4">
+                    <button id="btn-passion" data-target="passion" class="nav-btn glass-btn active">
+                        Tekken Journey
+                    </button>
+                    <button id="btn-goals" data-target="goals" class="nav-btn glass-btn">
+                        Future Goals
+                    </button>
+                    <button id="btn-concept" data-target="arena-concept" class="nav-btn glass-btn">
+                        Arena Concept
+                    </button>
+                    <button id="btn-contact" data-target="contact" class="nav-btn glass-btn">
+                        Contact Me
+                    </button>
+                </div>
             </nav>
         </header>
 
@@ -98,18 +169,21 @@
         <main class="container-content rounded-xl shadow-2xl p-6 lg:p-10 transition-all duration-300 ease-in-out">
             <!-- My Passion Section (visible by default) -->
             <section id="passion" class="content-section">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center text-sky-400">Tekken: From Arcade to Arena</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center multi-gradient-text">Tekken: From Arcade to Arena</h2>
                 <p class="text-base md:text-lg text-gray-200 leading-relaxed mb-4">
-                    My love for Tekken began in the arcade. I spent hours there, playing Tekken 3 with friends. The sound of the joystick and buttons was music to my ears. As I got older, I moved on to Tekken Tag Tournament 2 on my Xbox 360, but I never forgot the feeling of the arcade.
+                    My name is Syed Haider Mansoor, and I'm a BBA student at NUML in Faisalabad. I've always loved Tekken, ever since I was a kid. I spent a lot of time at the arcade with my friends, playing Tekken 3 on those old machines. It was a place where we hung out, competed, and got really into the game.
                 </p>
                 <p class="text-base md:text-lg text-gray-200 leading-relaxed mb-4">
-                    Now, I want to take that passion and turn it into something real. My goal is to create a modern gaming arena in Faisalabad. It will be a place where old and new players can come together to play Tekken and share their love for the game.
+                    As I got older, I moved on to home consoles. I started playing Tekken 7 on my PlayStation 4. The best part was getting online—I'd join parties with people from all over to play and talk about the game. It was a great way to get better and learn new tricks.
+                </p>
+                <p class="text-base md:text-lg text-gray-200 leading-relaxed mb-4">
+                    All of this made me want to start my own business. My goal is to create a modern gaming arena in Faisalabad, a place where new and old players can come together and share the same passion for Tekken that I have.
                 </p>
             </section>
 
             <!-- Future Goals Section -->
             <section id="goals" class="content-section hidden">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center text-sky-400">Future Goals: Building an Arena</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center multi-gradient-text">Future Goals: Building an Arena</h2>
                 <p class="text-base md:text-lg text-gray-200 leading-relaxed mb-4">
                     My ultimate goal is to transform my passion into a vibrant business. I envision a modern gaming arena right here in Faisalabad—a place where both veteran players and newcomers can come together. It won't just be a gaming spot; it will be a high-tech hub for Tekken enthusiasts. The arena will feature top-of-the-line gaming consoles, high-refresh-rate monitors, and comfortable setups to provide the best possible gaming experience.
                 </p>
@@ -120,29 +194,29 @@
 
             <!-- Arena Concept Section -->
             <section id="arena-concept" class="content-section hidden">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center text-sky-400">The Arena Concept</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center multi-gradient-text">The Arena Concept</h2>
                 <p class="text-base md:text-lg text-gray-200 leading-relaxed mb-4">
                     The Faisalabad Tekken Arena will be a premium gaming facility designed for competitive play. The concept focuses on providing the best possible environment for players to hone their skills and compete. Key features will include:
                 </p>
                 <ul class="list-disc list-inside text-gray-200 text-base md:text-lg space-y-2">
-                    <li><span class="font-semibold text-sky-400">High-Performance Gaming Stations:</span> Each station will be equipped with modern gaming consoles and controllers, optimized for a lag-free experience.</li>
-                    <li><span class="font-semibold text-sky-400">Dedicated Tournament Area:</span> A separate stage area with large screens for live-streaming matches, creating an immersive experience for both players and spectators.</li>
-                    <li><span class="font-semibold text-sky-400">Snack & Refreshment Bar:</span> A dedicated counter to provide energy drinks, snacks, and other refreshments to keep players energized during long gaming sessions.</li>
-                    <li><span class="font-semibold text-sky-400">Community Spaces:</span> Comfortable lounge areas where players can relax, socialize, and discuss strategies.</li>
+                    <li><span class="font-semibold multi-gradient-text">High-Performance Gaming Stations:</span> Each station will be equipped with modern gaming consoles and controllers, optimized for a lag-free experience.</li>
+                    <li><span class="font-semibold multi-gradient-text">Dedicated Tournament Area:</span> A separate stage area with large screens for live-streaming matches, creating an immersive experience for both players and spectators.</li>
+                    <li><span class="font-semibold multi-gradient-text">Snack & Refreshment Bar:</span> A dedicated counter to provide energy drinks, snacks, and other refreshments to keep players energized during long gaming sessions.</li>
+                    <li><span class="font-semibold multi-gradient-text">Community Spaces:</span> Comfortable lounge areas where players can relax, socialize, and discuss strategies.</li>
                 </ul>
             </section>
 
             <!-- Contact Me Section -->
             <section id="contact" class="content-section hidden">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center text-sky-400">Get in Touch</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center multi-gradient-text">Get in Touch</h2>
                 <p class="text-base md:text-lg text-gray-200 leading-relaxed mb-6 text-center">
                     I'd love to connect with fellow Tekken players and business partners. Feel free to reach out to me via email or join my Discord server to chat.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                    <a href="mailto:muhammadhaidermansoor@gmail.com" class="contact-btn neon-btn">
+                    <a href="mailto:muhammadhaidermansoor@gmail.com" class="contact-btn glass-btn">
                         <span class="font-medium">Email Me</span>
                     </a>
-                    <a href="https://discord.gg/3HxRuKwF" target="_blank" rel="noopener noreferrer" class="contact-btn neon-btn">
+                    <a href="https://discord.gg/3HxRuKwF" target="_blank" rel="noopener noreferrer" class="contact-btn glass-btn">
                         <span class="font-medium">Join Discord</span>
                     </a>
                 </div>
@@ -160,6 +234,8 @@
     <!-- Script to Handle Navigation -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('menu-toggle');
+            const navMenu = document.getElementById('nav-menu');
             const navBtns = document.querySelectorAll('.nav-btn');
             const contentSections = document.querySelectorAll('.content-section');
 
@@ -167,8 +243,19 @@
             document.getElementById('passion').classList.remove('hidden');
             document.getElementById('btn-passion').classList.add('active');
 
+            // Mobile menu toggle
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('hidden');
+            });
+
+            // Nav button click handler
             navBtns.forEach(button => {
                 button.addEventListener('click', () => {
+                    // Hide the mobile menu after a button is clicked
+                    if (window.innerWidth < 768) { // 768px is Tailwind's md breakpoint
+                        navMenu.classList.add('hidden');
+                    }
+
                     // Remove active style from all buttons
                     navBtns.forEach(btn => {
                         btn.classList.remove('active');
